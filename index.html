@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mycanvas">
+        您的浏览器版本太低了请更换高版本浏览器
+    </canvas>
+    <!-- <canvas id="canvasId" width="200" height="200"></canvas>
+<script type="text/javascript">
+var canvas = document.getElementById("canvasId");
+var context = canvas.getContext("2d");
+context.translate(100,100);
+setInterval(function () {
+    context.clearRect(-100,-100,canvas.width,canvas.height);
+    context.rotate(1*Math.PI/180);
+    context.fillRect(-100,-10,200,20);
+}, 1000/60); -->
+<!-- </script> -->
+</body>
+<script>
+    var mycanvas = document.querySelector('#mycanvas');
+    var ctx = mycanvas.getContext('2d');
+    var num = 0;
+    mycanvas.width = 520;
+    mycanvas.height = 600;
+    var x = 100;
+    var y = 100;
+    var w = 520;
+    var h = 600;
+
+    ctx.translate(260, 300);
+    var time = setInterval(function (){
+        ctx.clearRect(-260,-300,mycanvas.width,mycanvas.height);
+        num++;
+        ctx.beginPath(); 
+        ctx.save();
+        ctx.rotate(num * Math.PI /180);
+        ctx.moveTo(-210,-60);
+        ctx.lineTo(200,-60);
+        ctx.lineTo(-135,240);
+        ctx.lineTo(-10,-210);
+        ctx.lineTo(115,240);
+        ctx.lineTo(-210,-60);
+        ctx.shadowColor = 'yellow';
+        ctx.shadowOffsetX = 3;
+        ctx.shadowBlur = 10;
+        ctx.lineWidth = 6;
+        ctx.fillStyle = 'gray'; 
+        
+        ctx.fill();
+        ctx.strokeStyle = 'yellow';
+        ctx.stroke();
+        ctx.restore();
+        ctx.closePath();
+    },20);
+</script>
+</html>
